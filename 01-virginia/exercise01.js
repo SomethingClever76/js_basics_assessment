@@ -16,4 +16,24 @@
 
     //your code here
 
+    // First attempt - fail! Spent over 2 hours looking for answers and trying different code :-(
+    function countVirginia(string) {
+        let count = 0;
+        for (var i = 0; i < string.length; i++) {
+            if (string.includes('Virginia')) {
+                count++;
+            }
+        }
+        console.log(count);
+    }
+
+    countVirginia(washingtonInfo);
+
+
+    // Code below is an alternative solution which also has the benefit of being less complicated than the above solution!
+
+    // var number_of_matches = washingtonInfo.match(/Virginia/g).length;
+
+    // console.log(number_of_matches);
+
 })();
