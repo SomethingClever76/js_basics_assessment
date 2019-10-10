@@ -24,5 +24,22 @@
      */
 
     //your code here
+    function fizzBuzz(maxValue) {
+        let string = "";
+        for (var i = 1; i <= maxValue; i++) {
+            if (i % 2 === 0 && i % 3 === 0) {
+                string = string + "FizzBuzz, ";
+            } else if (i % 2 === 0) {
+                string = string + "Fizz, ";
+            } else if (i % 3 === 0) {
+                string = string + "Buzz, ";
+            }
+            else {
+                string = string + i + ", ";
+            }
+        }
+        console.log(string);
+    }
 
-})();
+    fizzBuzz(12);
+}) ();
