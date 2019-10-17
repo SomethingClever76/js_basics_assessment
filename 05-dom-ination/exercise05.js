@@ -1,19 +1,6 @@
 /**
  * Given the HTML below, please make the following changes with javascript – don't change any HTML!:
- *
- * 1. Any time someone clicks on the title at the top "feed template,"
- *    make the color of the "feed template" text change from black to red
- *    and then from red to black when clicked again.
- *
- * 2. The links on the side of the page – "your name," "section 1," "section 2," etc. –
- *    hide every odd-numbered link in the menu.
- *
- * 3. Change every instance of the word "bacon" on the page to be "LASER VISION"
- *
- * 4. Delete the last two posts in the middle section (they have a CSS class "post")
- *
- * 5. Remove the images in the right column
- *
+ * 
  * BONUS: add a special surprise inside!
  *    
  */
@@ -22,7 +9,12 @@
 
     //your code here
 
-    // 1. I created a variable whose value is targeting the element containing 
+//  *
+//  * 1. Any time someone clicks on the title at the top "feed template,"
+//  *    make the color of the "feed template" text change from black to red
+//  *    and then from red to black when clicked again.
+//  *
+    // I created a variable whose value is targeting the element containing 
     // the text "Feed Template".
     // Using this variable, I use addEventListener to "listen" for clicks on the text.
     // The function attached to the EventListener changes the color of the text,
@@ -38,7 +30,12 @@
         }
     });
 
-    // 2. Created a variable to represent all of the numbered links
+
+//  *
+//  * 2. The links on the side of the page – "your name," "section 1," "section 2," etc. –
+//  *    hide every odd-numbered link in the menu.
+//  *
+    // Created a variable to represent all of the numbered links
     // (stored as a NodeList containing the elements classified as 
     // <section class="section"> in the HTML). Then, wrote a function 
     // to hide the odd-numbered links.
@@ -57,40 +54,64 @@
     }
     hideOddLinks();
 
-    // 3.  querySelector finds all elements labeled <p> and stores them as a NodeList.
+
+// *
+// * 3. Change every instance of the word "bacon" on the page to be "LASER VISION"
+// *
+    // querySelector finds all elements labeled <p> and stores them as a NodeList.
     // This list is the value assigned to the variable "paragraphs".
     //  Used a loop to replace all the appearances of "bacon" in the inner HTML of each
     // paragraph in the nodeList 
     let paragraphs = document.querySelectorAll("p");
 
-    // for (var i = 0; i < paragraphs.length; i++) {
-    //     paragraphs[i].innerHTML = paragraphs[i].innerHTML.replace(/bacon/gi, "LASER VISION");
-    // }
+    for (var i = 0; i < paragraphs.length; i++) {
+        paragraphs[i].innerHTML = paragraphs[i].innerHTML.replace(/bacon/gi, "LASER VISION");
+    }
 
-    //for each method that works with nodeLists
-    //we are looping over paragraphs, a nodeList
-    //i just wanted you to see the forEach way
-    //you can delete whatever of this crap that i typed
-    // i can pass more things into the callback for the forEach. The first thing (poop), 
-    //represents the value in the list, index represnts the postion in the 
-    //list and parent will make sense later when we get into object oreiented programming
-    paragraphs.forEach(function(poop, index){
-        console.log(poop, "the paragraph", index,  "the position in the node list", parent, "the parent element")
-        poop.innerHTML = poop.innerHTML.replace(/bacon/gi, "LASER VISION");
-    })
+    // (KEEP FOR FUTURE REFERENCE) 
+    // Eric's comments: 
+    // forEach method that works with NodeLists
+    // We are looping over paragraphs, a NodeList
+    // I just wanted you to see the forEach way
+    // I can pass more things into the callback for the forEach. The first thing (poop), 
+    // represents the value in the list, index represents the position in the 
+    // list and parent will make sense later when we get into object oriented programming
 
-    // 4.
+    // paragraphs.forEach(function(poop, index){
+    //     console.log(poop, "the paragraph", index,  "the position in the node list", parent, "the parent element")
+    //     poop.innerHTML = poop.innerHTML.replace(/bacon/gi, "LASER VISION");
+    // })
 
-    // 5.
+
+// *
+// * 4. Delete the last two posts in the middle section (they have a CSS class "post")
+// *
+    // Created a variable to hold a NodeList containing all HTML elements with the CSS class "post".
+    // Converted the NodeList to an Array, so we can use Array methods on it.
+    // Created a variable to hold the last two (actually three - due to one set of "2 comments" being
+    // marked with the "post" class selector) elements from the postsArray.
+    // You can't call remove on multiple items, so a loop is used to remove each item individually.
+    // (i.e., spliceLastTwoPosts.remove() will NOT work).
+let posts = document.querySelectorAll(".post");
+let postsArray = Array.from(posts);
+let spliceLastTwoPosts = postsArray.splice(-3);
+
+for (var i = 0; i < spliceLastTwoPosts.length; i++) {
+    spliceLastTwoPosts[i].remove();
+}
+
+
+//  *
+//  * 5. Remove the images in the right column
+//  *
+    // Created a variable targeting the images in the right column (grouped together inside <p> tags 
+    // inside an <aside> in the HTML) using querySelectorAll. Used a loop to go through the resulting 
+    // NodeList to remove the images.
 let adImages = document.querySelectorAll("aside p img");
 
 for (var i = 0; i < adImages.length; i++) {
     adImages[i].remove();
 }
 
-//some things we just get exposed to when we need them. we can't lecture on every single thing
-//part of the journey is being happy learning things that come up on your own
-//we will always help you figure those things out when you discover them
 
-//you are doing awesome by the way. definetely above average. I am exicted for you. I think you will be a great developer
 })();
