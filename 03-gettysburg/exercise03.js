@@ -15,12 +15,12 @@
     // a loop to log each index of the array separately.
     function oneWordAtATime(text) {
         let textArray = text.split(' ');
-    for (var i = 0; i < textArray.length; i++) {
-        console.log(textArray[i]);
+        for (var i = 0; i < textArray.length; i++) {
+            console.log(textArray[i]);
+        }
+
     }
-    
-}
-    
-oneWordAtATime(gAddress);
+
+    oneWordAtATime(gAddress);
 
 })();
