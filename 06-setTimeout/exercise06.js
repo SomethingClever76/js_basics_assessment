@@ -1,8 +1,7 @@
 (function(){
 
-
 /** 
- * Use javascript to target update the contents of the heading with the id of title in index.html
+ * Use javascript to target and update the contents of the heading with the id of title in index.html
  * Currently it displays the text "Hello World".
  * Your code should update the contents of the heading to say "Goodbye World."
  * 
@@ -15,5 +14,7 @@
 
 //your code here
 
+    setTimeout(function(){ document.getElementById("title").innerHTML="Goodbye World"; }, 3000);
+
 })();
-    
+  

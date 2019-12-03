@@ -32,4 +32,30 @@
 
   //your code here
 
+  // Creating an array of all the images.
+  let images = ["cats.jpg", "hugger.jpg", "internet.jpg", "jackson.jpg", "washington.jpg", "meAfterDoingThisAssessment.jpg"];
+
+  // Setting up a function which will be used to get a random whole number less than a given "max".
+  function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+  }
+
+  // Used the following structure from the stackoverflow question above:
+  //
+  // function myTimeoutFunction() {
+  //   doStuff();
+  //   setTimeout(myTimeoutFunction, 1000);
+  // }
+  // myTimeoutFunction();
+  //
+  // The function is set up so that when it is called, it does some "stuff".
+  // Then, it uses setTimeout and calls the function itself every 2.5 seconds (recursion).
+
+  function addImageTimer() {
+    addImage(images[getRandomInt(images.length)]);
+    setTimeout(addImageTimer, 2500);
+  }
+
+  addImageTimer();
+
 })();
